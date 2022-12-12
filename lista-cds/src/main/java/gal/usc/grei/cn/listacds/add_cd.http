@@ -1,0 +1,31 @@
+POST http://localhost:8080/listacds
+Content-Type: application/json
+
+{
+  "name": "Help!",
+  "author": "The Beatles",
+  "price": 15.99
+}
+
+###
+
+POST http://localhost:8080/listacds
+Content-Type: application/json
+
+{
+  "name": "Evolve!",
+  "author": "Imagine Dragons",
+  "price": 25.50
+}
+
+###
+POST http://localhost:8080/listacds
+Content-Type: application/json
+
+{
+  "name": "High Hopes",
+  "author": "Panic! at the Disco",
+  "price": 18.99
+}
+
+###
