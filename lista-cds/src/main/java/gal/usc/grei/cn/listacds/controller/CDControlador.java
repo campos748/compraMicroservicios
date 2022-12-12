@@ -108,7 +108,7 @@ public class CDControlador {
 
     /**
      * Método: DELETE
-     * Url para llegar: /listacds/del/{nombre}
+     * Url para llegar: /listacds/delete/{nombre}
      * Objetivo: eliminar el cd con el nombre dado.
      *
      * @param nombre nombre del cd a eliminar

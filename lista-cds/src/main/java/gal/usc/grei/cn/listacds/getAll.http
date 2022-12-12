@@ -1,1 +1,1 @@
-GET localhost:8080/listacds/all
+GET localhost:8082/listacds/all
