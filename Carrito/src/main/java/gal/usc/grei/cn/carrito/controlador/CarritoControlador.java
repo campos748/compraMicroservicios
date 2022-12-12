@@ -34,6 +34,13 @@ public class CarritoControlador {
      * @param name nombre del cd
      * @return el cd con ese nombre
      */
+    @Operation(summary = "Obtener un cd a partir de su nombre")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "CD encontrado",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = CD.class)) }),
+            @ApiResponse(responseCode = "404", description = "CD no encontrado",
+                    content = @Content) })
     @GetMapping(path = "{name}", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<CD> createByName(@PathVariable("name") String name) {
         return ResponseEntity.of(cds.findByName(name));
@@ -47,7 +54,14 @@ public class CarritoControlador {
      * @param
      * @return todos los cds del carrito
      */
-
+    @Operation(summary = "Obtener el carrito")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Carrito devuelto con éxito",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = CD.class)) })})
+    @GetMapping(
+            path = "{nombre}", produces = MediaType.APPLICATION_JSON_VALUE
+    )
     @GetMapping(path = "", produces = MediaType.APPLICATION_JSON_VALUE)
     ResponseEntity<List<CD>> createCart() {
         return ResponseEntity.of(cds.findAll());
@@ -62,7 +76,16 @@ public class CarritoControlador {
      * @param  cd disco que se quiere añadir
      * @return respuesta cd añadido
      */
-
+    @Operation(summary = "Añadir cd al carrito")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "CD añadido al carrito correctamente",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = CD.class)) }),
+            @ApiResponse(responseCode = "400", description = "No se introdujeron bien los datos",
+                    content = @Content) })
+    @GetMapping(
+            path = "{nombre}", produces = MediaType.APPLICATION_JSON_VALUE
+    )
     @PostMapping(
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
@@ -91,6 +114,12 @@ public class CarritoControlador {
             @ApiResponse(responseCode = "200", description = " true:CD eliminado correctamente | false:no existe el CD ",
                     content = { @Content(mediaType = "application/json",
                             schema = @Schema(implementation = CD.class)) })}) */
+
+    @Operation(summary = "Borrar un CD en función de su nombre del carrito")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "CD borrado correctamente del carrito",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = CD.class)) })})
     @DeleteMapping(
             path = "delete/{nombre}", produces = MediaType.APPLICATION_JSON_VALUE
     )
@@ -98,6 +127,14 @@ public class CarritoControlador {
         return cds.deleteByName(nombre);
     }
 
+    @Operation(summary = "Borrar todos los CDs")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Carrito borrado correctamente",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = CD.class)) })})
+    @GetMapping(
+            path = "{nombre}", produces = MediaType.APPLICATION_JSON_VALUE
+    )
     @DeleteMapping(
             path = "delete", produces = MediaType.APPLICATION_JSON_VALUE
     )

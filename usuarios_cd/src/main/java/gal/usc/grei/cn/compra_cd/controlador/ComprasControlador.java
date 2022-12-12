@@ -40,6 +40,16 @@ public class ComprasControlador {
      * @param simbolo El símbolo de la acción a recuperar
      * @return Si el simbolo es válido, los datos de la acción.
      **/
+    @Operation(summary = "Obtención de las compras de un usuario")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "200", description = "Compras del usuario encontradas",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = CD.class)) }),
+            @ApiResponse(responseCode = "404", description = "No existen compras de ese usuario",
+                    content = @Content) })
+    @GetMapping(
+            path = "{nombre}", produces = MediaType.APPLICATION_JSON_VALUE
+    )
     @GetMapping(
             path = "{simbolo}", produces = MediaType.APPLICATION_JSON_VALUE
     )
@@ -57,6 +67,16 @@ public class ComprasControlador {
      * @param Compra los datos de la compra a insertar
      * @return Si la inserción se ha podido hacer, la nueva compra y la url para acceder a ella.
      */
+    @Operation(summary = "Almacenar una compra")
+    @ApiResponses(value = {
+            @ApiResponse(responseCode = "201", description = "Se ha registrado la compra correctamente",
+                    content = { @Content(mediaType = "application/json",
+                            schema = @Schema(implementation = CD.class)) }),
+            @ApiResponse(responseCode = "404", description = "No se han introducido bien los datos",
+                    content = @Content) })
+    @GetMapping(
+            path = "{nombre}", produces = MediaType.APPLICATION_JSON_VALUE
+    )
     @PostMapping(
             produces = MediaType.APPLICATION_JSON_VALUE,
             consumes = MediaType.APPLICATION_JSON_VALUE
