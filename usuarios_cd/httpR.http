@@ -1,0 +1,6 @@
+POST http://localhost:8081/compras
+Content-Type: application/json
+
+{
+  "usuario": "teresagb"
+}

@@ -1,0 +1,22 @@
+
+version: '3.7'
+
+services:
+  compracds:
+    image: tereesagb/compras-cd:latest
+    networks:
+      - net_lista_cds
+    ports:
+      - 8081:8081
+    deploy:
+      replicas: 1
+  tienda_cds:
+    image: mongo
+    networks:
+      - net_lista_cds
+    ports:
+      - 27017:27017
+    deploy:
+      replicas: 1
+networks:
+  net_lista_cds: {}
