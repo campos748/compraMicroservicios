@@ -1,8 +1,0 @@
-POST http://localhost:8081/compras
-Content-Type: application/json
-
-{
-  "fecha": "2019-01-01",
-"usuario": "tere",
-"carrito": "imagine dragons: evolve, the killers: hot fuss, the killers: battle born"
-}
