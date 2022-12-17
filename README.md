@@ -31,3 +31,7 @@ Servicio único por host → **Servicio por máquina**
 * Añadir CD al carrito → Comprar CD existente
 
 ## Despliegue de la aplicación
+Gracias al haber generado nuestras propias imágenes y haberlas subido será suficiente con dentro de nuestro enjambre de Docker Swarm ejecutar el comando:
+```
+docker stack deploy -c docker-stack.yml cds
+```
