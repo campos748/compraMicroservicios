@@ -8,7 +8,7 @@
  * [usuario_cd](https://github.com/campos748/compraMicroservicios/tree/main/usuarios_cd): Microservicio que permite identificarse como usuario y formalizar la compra.
  
 ## Herramientas para el despliegue en AWS
-Para lograr desplegar la aplicación en la nube de AWS hemos creado las imágenes Docker que luego desplegaremos utilizando un docker-stack.yml. Todos los archivos referentes se encuentran en la carpeta [/nube](https://github.com/campos748/compraMicroservicios/tree/main/nube) del proyecto.
+Para lograr desplegar la aplicación en la nube de AWS hemos creado las imágenes Docker que luego desplegaremos utilizando un docker-stack.yml. Los Dockerfile se encuentran en la carpeta [/1_nube](https://github.com/campos748/compraMicroservicios/tree/main/1_nube) del proyecto.
 
 ## Arquitectura de la aplicación
 ![Arquitectura de la aplicación](/0_imagenes/Arquitectura.jpg)
