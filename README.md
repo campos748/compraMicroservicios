@@ -31,7 +31,16 @@ Servicio único por host → **Servicio por máquina**
 * Añadir CD al carrito → Comprar CD existente
 
 ## Despliegue de la aplicación
-Gracias al haber generado nuestras propias imágenes y haberlas subido será suficiente con dentro de nuestro enjambre de Docker Swarm ejecutar el comando:
+Gracias al haber generado nuestras propias imágenes y haberlas subido al Docker Hub será suficiente con acceder a la carpeta [/2_despliegue](https://github.com/campos748/compraMicroservicios/tree/main/2_despliegue) y dentro de nuestro enjambre de Docker Swarm ejecutar el comando:
 ```
 docker stack deploy -c docker-stack.yml cds
 ```
+Debdo a ciertos problemas con la inicialización de la base de datos mongodb de manera utomática, insertaremos los datos utilizando un script de inserción que esté en la misma carpeta [/2_despliegue](https://github.com/campos748/compraMicroservicios/tree/main/2_despliegue). Para esto accedemos al contenedor con la base de datos mongo y, despues de haber asignado permisos de ejecución, ejecutamos el script:
+```
+chmod +777 scriptDatos.sh
+./scriptDatos.sh <nombre contenedor>
+```
+Una vez hecho esto podemos conectarnos a cada una de las APIs de los servicios a través de las siguientes direcciones:
+* lista_cds:  <IP_Publica>:8082/api
+* carrito:    <IP_Publica>:8080/api
+* usuario_cd: <IP_Publica>:8081/api
