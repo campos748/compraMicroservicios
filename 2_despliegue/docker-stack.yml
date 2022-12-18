@@ -1,0 +1,37 @@
+version: "3.7"
+
+services:
+  listacds:
+    image: campos748/mi_imagen_listacds:latest
+    networks:
+      - net_lista_cds
+    ports:
+      - 8082:8082
+    deploy:
+      replicas: 1
+  tienda_cds:
+    image: mongo
+    networks:
+      - net_lista_cds
+    ports:
+      - "27017:27017"
+    deploy:
+      replicas: 1
+  compracds:
+    image: tereesagb/compras-cd:latest
+    networks:
+      - net_lista_cds
+    ports:
+      - 8081:8081
+    deploy:
+      replicas: 1
+  carrito:
+    image: tereesagb/carrito:latest
+    networks:
+      - net_lista_cds
+    ports:
+      - 8080:8080
+    deploy:
+      replicas: 1 
+networks:
+  net_lista_cds: {}
