@@ -45,5 +45,5 @@ Una vez hecho esto podemos conectarnos a cada una de las APIs de los servicios a
 * carrito:    <IP_Publica>:8080/api
 * usuario_cd: <IP_Publica>:8081/api
 
-Un ejemplo de ejeución sería el siguiente:
-![video ejemplo](/0_imagenes/ejemplo.mp4)
+Un ejemplo de ejeución sería el que se expone en el siguiente vídeo:
+[video ejemplo](/0_imagenes/ejemplo.mp4)
